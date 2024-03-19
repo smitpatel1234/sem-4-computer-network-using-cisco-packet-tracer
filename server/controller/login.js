@@ -22,7 +22,7 @@ module.exports.login = async (req, res) => {
                 maxAge: new Date(Date.now() + 60*60*1000),
                 httpOnly: true
             });
-            return res.json({message: "login successful"});
+            return res.json({message: "login successfully"});
            
         
         } else {

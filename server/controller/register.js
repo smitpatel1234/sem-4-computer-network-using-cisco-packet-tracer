@@ -6,11 +6,11 @@ module.exports.register = async (req, res) => {
     var mydata = req.body;
     if(!mydata)
     {
-        return res.status(400).json({ ok:"successfull registration",status:400});
+         res.status(400).json({ ok:"successfull registration",status:400});
     }
     else
     {
-    return res.status(200).json({ ok:"successfull registration",status:200});
+     res.status(200).json({ ok:"successfull registration",status:200});
     }
     mydata.password =await bcrypt.hash( mydata.password,10);
     UserModel.create(mydata)

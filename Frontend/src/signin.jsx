@@ -1,7 +1,7 @@
 import React ,{useState,useRef} from 'react'
 import './App.css';
 import axios from 'axios';
-import { Link ,Navigate} from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 
 export default function Signin(S) {
   let resref = useRef(); 
@@ -10,6 +10,7 @@ export default function Signin(S) {
     password:'',
   });
 
+const navigate = useNavigate();
   const handlesubmit = async (e)=>{
       e.preventDefault();
        console.log(setdata)
@@ -24,7 +25,8 @@ export default function Signin(S) {
       
       const data = await res.json();
       resref.current.innerHTML = data.message; 
-      <Navigate to="/classroom" />;
+      if(data.message === "login successfully")
+      navigate('/classroom');
     
   }
 
@@ -34,10 +36,11 @@ export default function Signin(S) {
       ...setdata,
       [name]: value,
     });
+
   }
 
   return (
-    <>
+    <div className="body1">
       <form onSubmit={handlesubmit} method="post" >
         <h1>Gurukul</h1>
         <h2 className='hed'>Welcome, Log In!</h2>
@@ -68,6 +71,6 @@ export default function Signin(S) {
          <br />
           <span ref={resref} style={{fontSize :"2rem"}}></span>
       </form>
-    </>
+    </div>
   );
 }

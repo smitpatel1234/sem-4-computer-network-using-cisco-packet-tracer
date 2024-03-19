@@ -71,9 +71,8 @@ export default function Signup() {
   };
 
   return (
-    <>
+    <div className='body1'>
 
-      
      
         <form onSubmit={handleSubmit} method='post'>
         <h1>Gurukul</h1>
@@ -127,6 +126,6 @@ export default function Signup() {
         </form>
 
         
-    </>
+    </div>
   );
 }
